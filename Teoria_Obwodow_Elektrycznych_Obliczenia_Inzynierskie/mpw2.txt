@@ -1,0 +1,17 @@
+*circuit
+R1 1 0 100
+L2 1 2 0.01
+R3 2 3 100
+C4 3 0 0.1
+R5 2 4 100
+C5 4 3 0.1
+L6 2 5 0.01
+R6 5 0 100
+GI1 0 1 0 re=1 im=-1
+.freq=50
+*AC *RE V1 *IM V1 >
+*RE V2 *IM V2 >
+*RE V3 *IM V3 >
+*RE V4 *IM V4 >
+*RE V5 *IM V5
+*RUN

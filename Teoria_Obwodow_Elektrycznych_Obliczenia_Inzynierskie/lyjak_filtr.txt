@@ -1,0 +1,14 @@
+*circuit
+rwe 1 0 0 ma 1 ph 0
+r1 1 2 1
+c2 2 0 2
+r3 2 3 0.81
+r4 2 4 1
+c5 3 4 0.41
+:Wzmacniacz operacyjny
+qop 3=10 0=11 4=15 0=0
+*lib1 opamp
+q*
+*freq .01 1.0 0.001
+*ac *matlab *ma v4 *ph v4
+*run

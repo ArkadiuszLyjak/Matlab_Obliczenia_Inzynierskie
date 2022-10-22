@@ -1,0 +1,32 @@
+*circuit
+GJ1 5 1 0 re=1 im=-1
+GJ2 3 2 0 re=2 im=5
+GJ3 4 0 0 re=4 im=-5
+GJ4 5 0 0 re=4 im=5
+
+R12 8 2  1e2 
+R50 5 13 1e2 
+R10 14 0 1e2 
+R04 10 0 1e2 
+R34 3 11 1e2 
+R20 2 12 1e2 
+R30 7 3  1e2
+
+C12 1 9  1e-4 
+C03 0 6  1e-5 
+C34 11 4 1e-4 
+C20 12 0 1e-6 
+
+L12 9 8  1e-6
+L50 13 0 1e-3
+L10 1 14 1e-3
+L04 4 10 1e-7
+L03 6 7  1e-4
+
+.freq=50
+*AC *RE V1 *IM V1 >
+*RE V2 *IM V2 >
+*RE V3 *IM V3 >
+*RE V4 *IM V4 >
+*RE V5 *IM V5
+*RUN

@@ -1,0 +1,522 @@
+Plecs {
+  Name          "labmech2alyjak"
+  Version       "4.1"
+  CircuitModel  "ContStateSpace"
+  StartTime     "0.0"
+  StopTime      "1.0"
+  Timeout       ""
+  Solver        "dopri"
+  MaxStep       "1e-3"
+  InitStep      "-1"
+  FixedStep     "1e-3"
+  Refine        "1"
+  ZCStepSize    "1e-9"
+  RelTol        "1e-3"
+  AbsTol        "-1"
+  TurnOnThreshold "0"
+  SyncFixedStepTasks "2"
+  UseSingleCommonBaseRate "2"
+  LossVariableLimitExceededMsg "3"
+  NegativeSwitchLossMsg "3"
+  DivisionByZeroMsg "3"
+  StiffnessDetectionMsg "2"
+  MaxConsecutiveZCs "1000"
+  AssertionAction "1"
+  InitializationCommands ""
+  InitialState  "1"
+  SystemState   ""
+  CodeGenParameterInlining "2"
+  CodeGenInliningExceptions "AAAACwAAAAAA"
+  CodeGenFloatingPointFormat "2"
+  CodeGenIntegerWordSize "32"
+  CodeGenAbsTimeUsageMsg "3"
+  CodeGenBaseName ""
+  CodeGenOutputDir ""
+  CodeGenExtraOpts ""
+  CodeGenTarget "Generic"
+  CodeGenTargetSettings ""
+  ExtendedMatrixPrecision "1"
+  MatrixSignificanceCheck "2"
+  EnableStateSpaceSplitting "2"
+  DisplayStateSpaceSplitting "1"
+  DiscretizationMethod "2"
+  ExternalModeSettings ""
+  AlgebraicLoopMethod "1"
+  AlgebraicLoopTolerance "1e-6"
+  Schematic {
+    Location      [507, 154; 1498, 866]
+    ZoomFactor    1
+    SliderPosition [0, 0]
+    ShowBrowser   off
+    BrowserWidth  100
+    Component {
+      Type          VoltageSource
+      Name          "V"
+      Show          on
+      Position      [360, 240]
+      Direction     down
+      Flipped       on
+      Parameter {
+        Variable      "DiscretizationBehavior"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "StateSpaceInlining"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          DCVoltageSource
+      Name          "V_dc"
+      Show          on
+      Position      [485, 330]
+      Direction     right
+      Flipped       on
+      Parameter {
+        Variable      "V"
+        Value         "200"
+        Show          on
+      }
+    }
+    Component {
+      Type          Reference
+      SrcComponent  "Components/Electrical/Machines/DC Machine"
+      Name          "DC Machine"
+      Show          on
+      Position      [485, 160]
+      Direction     up
+      Flipped       off
+      Frame         [-25, -18; 25, 45]
+      LabelPosition [0, 48]
+      LabelAlign    up
+      Parameter {
+        Variable      "Ra"
+        Value         "0.94"
+        Show          on
+      }
+      Parameter {
+        Variable      "La"
+        Value         "0.0086"
+        Show          on
+      }
+      Parameter {
+        Variable      "Rf"
+        Value         "200"
+        Show          on
+      }
+      Parameter {
+        Variable      "Lf"
+        Value         "100"
+        Show          off
+      }
+      Parameter {
+        Variable      "Laf"
+        Value         "(480-0.94*52.3)/(1982*2*pi/60)"
+        Show          off
+      }
+      Parameter {
+        Variable      "J"
+        Value         "0.04"
+        Show          on
+      }
+      Parameter {
+        Variable      "F"
+        Value         "0.004"
+        Show          on
+      }
+      Parameter {
+        Variable      "wm0"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "thm0"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "ia0"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "if0"
+        Value         "1"
+        Show          off
+      }
+      Terminal {
+        Type          Port
+        Position      [-30, 0]
+        Direction     left
+      }
+      Terminal {
+        Type          Port
+        Position      [30, 0]
+        Direction     right
+      }
+      Terminal {
+        Type          Port
+        Position      [-30, 30]
+        Direction     left
+      }
+      Terminal {
+        Type          Port
+        Position      [30, 30]
+        Direction     right
+      }
+      Terminal {
+        Type          Rotational
+        Position      [30, 40]
+        Direction     right
+      }
+    }
+    Component {
+      Type          Scope
+      Name          "Scope"
+      Show          on
+      Position      [535, 430]
+      Direction     up
+      Flipped       off
+      Location      [0, 0; 0, 0]
+      State         ""
+      SavedViews    ""
+      HeaderState   ""
+      PlotPalettes  ""
+      Axes          "4"
+      TimeRange     "0.0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    ""
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis   on
+        AxisLabel     "Frequency"
+        Scaling       0
+        PhaseDisplay  0
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          PlecsProbe
+      Name          "Probe"
+      Show          on
+      Position      [380, 415]
+      Direction     right
+      Flipped       off
+    }
+    Component {
+      Type          PlecsProbe
+      Name          "Probe1"
+      Show          on
+      Position      [380, 455]
+      Direction     right
+      Flipped       off
+    }
+    Component {
+      Type          PlecsProbe
+      Name          "Probe2"
+      Show          on
+      Position      [380, 495]
+      Direction     right
+      Flipped       off
+    }
+    Component {
+      Type          PlecsProbe
+      Name          "Probe3"
+      Show          on
+      Position      [380, 535]
+      Direction     right
+      Flipped       off
+    }
+    Component {
+      Type          ControlledTorque
+      Name          "Torque2"
+      Show          on
+      Position      [725, 200]
+      Direction     down
+      Flipped       on
+      Parameter {
+        Variable      "SecondFlange"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "StateSpaceInlining"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          Inertia
+      Name          "Inertia"
+      Show          on
+      Position      [675, 200]
+      Direction     up
+      Flipped       off
+      Parameter {
+        Variable      "J"
+        Value         "0.06"
+        Show          off
+      }
+      Parameter {
+        Variable      "w0"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "theta0"
+        Value         ""
+        Show          off
+      }
+    }
+    Component {
+      Type          RotationalReference
+      Name          "Rotational\nFrame"
+      Show          on
+      Position      [790, 240]
+      Direction     up
+      Flipped       off
+    }
+    Component {
+      Type          Step
+      Name          "Step1"
+      Show          on
+      Position      [685, 130]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Time"
+        Value         "0.6"
+        Show          off
+      }
+      Parameter {
+        Variable      "Before"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "After"
+        Value         "66"
+        Show          off
+      }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "V_dc"
+      SrcTerminal   1
+      Points        [415, 330; 415, 190]
+      DstComponent  "DC Machine"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "DC Machine"
+      SrcTerminal   4
+      Points        [545, 190; 545, 330]
+      DstComponent  "V_dc"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "V"
+      SrcTerminal   1
+      Points        [360, 160]
+      DstComponent  "DC Machine"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "V"
+      SrcTerminal   2
+      Points        [360, 365; 625, 365; 625, 160]
+      DstComponent  "DC Machine"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Probe"
+      SrcTerminal   1
+      DstComponent  "Scope"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Probe1"
+      SrcTerminal   1
+      Points        [440, 455; 440, 425]
+      DstComponent  "Scope"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Probe2"
+      SrcTerminal   1
+      Points        [450, 495; 450, 435]
+      DstComponent  "Scope"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Probe3"
+      SrcTerminal   1
+      Points        [460, 535; 460, 445]
+      DstComponent  "Scope"
+      DstTerminal   4
+    }
+    Connection {
+      Type          Rotational
+      SrcComponent  "Inertia"
+      SrcTerminal   1
+      DstComponent  "DC Machine"
+      DstTerminal   5
+    }
+    Connection {
+      Type          Rotational
+      SrcComponent  "Inertia"
+      SrcTerminal   2
+      DstComponent  "Torque2"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Rotational
+      SrcComponent  "Torque2"
+      SrcTerminal   1
+      Points        [790, 200]
+      DstComponent  "Rotational\nFrame"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Step1"
+      SrcTerminal   1
+      Points        [725, 130]
+      DstComponent  "Torque2"
+      DstTerminal   2
+    }
+  }
+  ProbeBlock {
+    Tag           "labmech2alyjak/Probe"
+    Probe {
+      Component     "V"
+      Path          ""
+      Signals       {"Source voltage"}
+    }
+  }
+  ProbeBlock {
+    Tag           "labmech2alyjak/Probe1"
+    Probe {
+      Component     "DC Machine"
+      Path          ""
+      Signals       {"Armature current"}
+    }
+  }
+  ProbeBlock {
+    Tag           "labmech2alyjak/Probe2"
+    Probe {
+      Component     "DC Machine"
+      Path          ""
+      Signals       {"Electrical torque"}
+    }
+    Probe {
+      Component     "Torque2"
+      Path          ""
+      Signals       {"Torque"}
+    }
+  }
+  ProbeBlock {
+    Tag           "labmech2alyjak/Probe3"
+    Probe {
+      Component     "DC Machine"
+      Path          ""
+      Signals       {"Rotational speed"}
+    }
+  }
+}
+DemoSignature "czdrgyBCuD4+xAznxOekNZIKlrzwq4x/fnEkoBdyB+g="
